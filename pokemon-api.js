@@ -14,7 +14,6 @@ const https = require('https');
 
 
 
-//NOMBRE DEL POKEMON Y LAS HABILIDADES QUE HACE
 https.get('https://pokeapi.co/api/v2/pokemon/6' , (resp) => {
     let data = ''
 
@@ -36,7 +35,6 @@ resp.on('end',() => {
 
 
 
-//GET ALL POKEMONS
 https.get('https://pokeapi.co/api/v2/pokemon/' , (resp) => {
     let data = ''
 
@@ -45,7 +43,7 @@ resp.on('data', (chunk) => {
 })
 
 resp.on('end',() => {
-    console.log(JSON.parse(data).results.map(resul => resul.name).toString());
+    console.log(` \n \n${JSON.parse(data).results.map(resul => resul.name).toString()}\n`);
 });
 
 }).on("error",(error) =>{
@@ -57,7 +55,6 @@ resp.on('end',() => {
 
 
 
-//SOLO LOS 3 POKEMONS
 https.get('https://pokeapi.co/api/v2/pokemon/?offset=3&limit=3' , (resp) => {
     let data = ''
 
